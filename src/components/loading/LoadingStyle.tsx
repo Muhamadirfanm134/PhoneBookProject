@@ -1,0 +1,17 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+
+export const spinnerContainer = css`
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 200;
+`;

@@ -1,0 +1,11 @@
+overwrite: true
+schema: "https://wpe-hiring.tokopedia.net/graphql"
+documents: "./src/pages/**/*.{ts,tsx}"
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      withHooks: true
