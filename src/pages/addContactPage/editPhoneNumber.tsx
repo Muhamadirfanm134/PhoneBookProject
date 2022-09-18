@@ -40,8 +40,6 @@ const EditPhoneNumber: React.FC<EditPhoneNumberProps> = (props) => {
   const id = contactData?.id;
   const number = contactData?.phone;
 
-  console.log(number);
-
   const [editPhoneNumber, { loading, error, data }] =
     useMutation(EDIT_PHONE_NUMBER);
 
@@ -68,16 +66,25 @@ const EditPhoneNumber: React.FC<EditPhoneNumberProps> = (props) => {
   }
 
   const onFinish = (values: any) => {
-    editPhoneNumber({
-      variables: {
-        pk_columns: {
-          number: number,
-          contact_id: id,
+    if (values.phone.phone === "") {
+      Swal.fire({
+        icon: "warning",
+        showConfirmButton: false,
+        showCloseButton: true,
+        text: `Please Input phone number`,
+      });
+    } else {
+      editPhoneNumber({
+        variables: {
+          pk_columns: {
+            number: number,
+            contact_id: id,
+          },
+          new_phone_number: `+${values.phone?.code}${values?.phone.phone}${values?.phone.short}`,
         },
-        new_phone_number: `+${values.phone?.code}${values?.phone.phone}${values?.phone.short}`,
-      },
-      refetchQueries: [{ query: GET_CONTACT_LIST }],
-    });
+        refetchQueries: [{ query: GET_CONTACT_LIST }],
+      });
+    }
   };
 
   const phones = {

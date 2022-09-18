@@ -64,13 +64,22 @@ const AddPhoneNumber: React.FC<AddPhoneNumberProps> = (props) => {
   }
 
   const onFinish = (values: any) => {
-    addPhoneNumber({
-      variables: {
-        contact_id: id,
-        phone_number: `+${values.phone?.code}${values?.phone.phone}${values?.phone.short}`,
-      },
-      refetchQueries: [{ query: GET_CONTACT_LIST }],
-    });
+    if (values.phone.phone === "") {
+      Swal.fire({
+        icon: "warning",
+        showConfirmButton: false,
+        showCloseButton: true,
+        text: `Please Input phone number`,
+      });
+    } else {
+      addPhoneNumber({
+        variables: {
+          contact_id: id,
+          phone_number: `+${values.phone?.code}${values?.phone.phone}${values?.phone.short}`,
+        },
+        refetchQueries: [{ query: GET_CONTACT_LIST }],
+      });
+    }
   };
 
   return (

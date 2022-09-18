@@ -44,7 +44,7 @@ const LayoutComponent: React.FunctionComponent<CommonLayoutProps> = ({
               css={primaryButton}
               shape="circle"
               icon={<i className="bx bx-fw bxl-github" />}
-              href="https://www.linkedin.com/in/muhamadirfanm134/"
+              href="https://github.com/Muhamadirfanm134"
               target="_blank"
             />
           </Col>

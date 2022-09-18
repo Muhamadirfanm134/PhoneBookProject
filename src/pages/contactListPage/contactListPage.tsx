@@ -33,11 +33,11 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [minValue, setMinValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(12);
+  const [maxValue, setMaxValue] = useState(10);
   const [search, setSearch] = useState("");
   const [isSearch, setIsSearch] = useState(false);
 
-  const numEachPage = 12;
+  const numEachPage = 10;
 
   const onChange: PaginationProps["onChange"] = (value) => {
     setCurrentPage(value);
@@ -72,10 +72,13 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
     }
     setCurrentPage(1);
     setMinValue(0);
-    setMaxValue(12);
+    setMaxValue(10);
   };
 
-  const contactsData = search ? dataValue : data?.contact;
+  const contactsData = isSearch ? dataValue : data?.contact;
+  const contactList = [...contactsData].sort((a, b) =>
+    a.first_name.localeCompare(b.first_name)
+  );
 
   return (
     <LayoutComponent>
@@ -104,7 +107,7 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
         <Input
           css={searchComponent}
           placeholder="Type your keyword"
-          prefix={<img src={searchIcon} />}
+          prefix={<img alt="Search-Icon" src={searchIcon} />}
           value={search}
           onChange={handleSearchChange}
         />
@@ -114,7 +117,7 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
       {total > 0 ? (
         <>
           <Row gutter={[20, 0]}>
-            {contactsData.slice(minValue, maxValue).map((data, index) => (
+            {contactList.slice(minValue, maxValue).map((data, index) => (
               <Col xs={24} sm={24} md={12} lg={12} xl={12} key={index}>
                 <Link
                   to={{
@@ -163,7 +166,7 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
           </Row>
           <Pagination
             current={currentPage}
-            pageSize={12}
+            pageSize={10}
             onChange={onChange}
             total={total}
           />
@@ -172,7 +175,7 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
         <>
           <Gap height={20} />
           <CardPlain css={notFoundStyle}>
-            <img src={notFound} />
+            <img alt="Not-Found" src={notFound} />
             <div>Contact Not Found</div>
           </CardPlain>
         </>

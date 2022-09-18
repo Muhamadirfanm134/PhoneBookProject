@@ -85,7 +85,7 @@ const ContactDetailPage: React.FC<ContactDetailPageProps> = ({
       <CardHeader>
         <Row gutter={[40, 10]} align="middle">
           <Col xs={24} sm={24} md={5} lg={5} xl={5}>
-            <img src={contact} style={{ width: 150 }} />
+            <img alt="Contact" src={contact} style={{ width: 150 }} />
           </Col>
           <Col xs={24} sm={24} md={18} lg={18} xl={18}>
             <Heading>
@@ -132,7 +132,11 @@ const ContactDetailPage: React.FC<ContactDetailPageProps> = ({
 
       <Row gutter={[30, 30]}>
         <Col xs={24} sm={12} md={12} lg={12} xl={12}>
-          <img src={contactDetail} style={{ width: 300 }} />
+          <img
+            alt="Contact-Detail"
+            src={contactDetail}
+            style={{ width: 300 }}
+          />
         </Col>
         <Col xs={24} sm={12} md={12} lg={12} xl={12}>
           <Row align="middle">
