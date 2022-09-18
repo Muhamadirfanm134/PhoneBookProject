@@ -76,8 +76,6 @@ const AddContactPage: React.FC<AddContactPageProps> = (props) => {
 
   const contactData = location.state as LocationState;
 
-  console.log(contactData);
-
   const [addContact, { loading, error, data }] = useMutation(ADD_CONTACT);
 
   if (loading) {
@@ -103,7 +101,6 @@ const AddContactPage: React.FC<AddContactPageProps> = (props) => {
   }
 
   const onFinish = (values: any) => {
-    console.log({ values });
     addContact({
       variables: {
         first_name: values?.first_name,

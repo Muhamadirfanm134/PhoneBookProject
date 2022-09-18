@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
-import Avatar from "react-avatar";
 import LayoutComponent from "../../components/layouts/layout";
 import { Divider, Input, Pagination, PaginationProps } from "antd";
 import { DividerComponent } from "../../components/divider/divider";
@@ -22,7 +21,7 @@ import {
 import { Col, Row, Button, Tag } from "antd";
 import { GetContactListQuery } from "../../generated/graphql";
 import { Link, useNavigate } from "react-router-dom";
-import { divider, notFoundStyle } from "./ContactListStyle";
+import { divider, notFoundStyle, contactIcon } from "./ContactListStyle";
 import Gap from "../../components/gap";
 
 interface ContactListProps {
@@ -128,14 +127,10 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
                   <CardComponent>
                     <Row gutter={[40, 10]}>
                       <Col xs={5} sm={24} md={5} lg={5} xl={5}>
-                        <Avatar
-                          size="90"
-                          color="#14a01d"
+                        <img
+                          alt="Contact-Icon"
                           src={contact1}
-                          name={data?.first_name + " " + data?.last_name}
-                          round={true}
-                          textMarginRatio={0.15}
-                          style={{ marginTop: "-10px", marginLeft: "-10px" }}
+                          css={contactIcon}
                         />
                       </Col>
                       <Col xs={18} sm={24} md={18} lg={18} xl={18}>

@@ -28,8 +28,6 @@ const GetContactDetail: React.FC<GetContactDetailProps> = ({ id }) => {
     });
   }
 
-  console.log({ data });
-
   return data;
 };
 

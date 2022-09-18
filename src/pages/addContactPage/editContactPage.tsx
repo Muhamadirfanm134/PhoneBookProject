@@ -63,7 +63,6 @@ const EditContactPage: React.FC<EditContactPageProps> = (props) => {
   }
 
   const onFinish = (values: any) => {
-    console.log({ values });
     editContact({
       variables: {
         id: contactData?.id,

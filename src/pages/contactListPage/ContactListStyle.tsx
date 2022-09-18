@@ -14,6 +14,11 @@ export const subTitle = css`
   font-size: 16px;
 `;
 
+export const contactIcon = css`
+  width: 90px;
+  margin-left: -20px;
+`;
+
 export const nameCard = css`
   color: #333333;
   font-size: 18px;
