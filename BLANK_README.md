@@ -41,7 +41,7 @@
     <a href="https://github.com/Muhamadirfanm134/PhoneBookProject"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://phone-book-app-irfan.netlify.app/">View Live Site</a>
+    <a href="https://phone-book-app-irfan.netlify.app/"><b>View Live Site</b></a>
     ·
     <a href="https://github.com/Muhamadirfanm134/PhoneBookProject/issues">Report Bug</a>
     ·
@@ -204,9 +204,9 @@ Project Link: [https://github.com/Muhamadirfanm134/PhoneBookProjectgraphs/](http
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
 [forks-url]: https://github.com/Muhamadirfanm134/PhoneBookProjectnetwork/members
 [stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/Muhamadirfanm134/PhoneBookProjectstargazers
+[stars-url]: https://github.com/Muhamadirfanm134/PhoneBookProject/stargazers
 [issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/Muhamadirfanm134/PhoneBookProjectissues
+[issues-url]: https://github.com/Muhamadirfanm134/PhoneBookProject/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/muhamadirfanm134/
 [product-screenshot]: src/assets/images/screenshoot.png

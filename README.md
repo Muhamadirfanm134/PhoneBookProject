@@ -41,7 +41,7 @@
     <a href="https://github.com/Muhamadirfanm134/PhoneBookProject"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://phone-book-app-irfan.netlify.app/">View Live Site</a>
+    <a href="https://phone-book-app-irfan.netlify.app/"><b>View Live Site</b></a>
     ·
     <a href="https://github.com/Muhamadirfanm134/PhoneBookProject/issues">Report Bug</a>
     ·
