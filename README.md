@@ -36,7 +36,7 @@
 <h3 align="center">Phone Book App By Muhamad Irfan Maulana</h3>
 
   <p align="center">
-    project_description
+    Manage Your Contact
     <br />
     <a href="https://github.com/Muhamadirfanm134/PhoneBookProject"><strong>Explore the docs »</strong></a>
     <br />
@@ -186,7 +186,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Email: muhamadirfan45513@gmail.com
+Email: muhamadirfan45513@gmail.com<br/>
 Project Link: [https://github.com/Muhamadirfanm134/PhoneBookProjectgraphs/](https://github.com/Muhamadirfanm134/PhoneBookProjectgraphs/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
