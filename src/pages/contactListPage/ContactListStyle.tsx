@@ -19,6 +19,10 @@ export const contactIcon = css`
   margin-left: -20px;
 `;
 
+export const searchIconStyle = css`
+  width: 15px;
+`;
+
 export const nameCard = css`
   color: #333333;
   font-size: 18px;

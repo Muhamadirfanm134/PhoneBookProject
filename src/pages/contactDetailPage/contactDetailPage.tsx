@@ -69,6 +69,7 @@ const ContactDetailPage: React.FC<ContactDetailPageProps> = ({
 
   const handleDelete = () => {
     confirm({
+      centered: true,
       title: "Are you sure delete this contact?",
       icon: <ExclamationCircleOutlined />,
       okText: "Yes",

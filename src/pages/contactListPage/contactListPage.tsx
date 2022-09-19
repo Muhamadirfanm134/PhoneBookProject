@@ -21,7 +21,12 @@ import {
 import { Col, Row, Button, Tag } from "antd";
 import { GetContactListQuery } from "../../generated/graphql";
 import { Link, useNavigate } from "react-router-dom";
-import { divider, notFoundStyle, contactIcon } from "./ContactListStyle";
+import {
+  divider,
+  notFoundStyle,
+  contactIcon,
+  searchIconStyle,
+} from "./ContactListStyle";
 import Gap from "../../components/gap";
 
 interface ContactListProps {
@@ -106,7 +111,9 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
         <Input
           css={searchComponent}
           placeholder="Type your keyword"
-          prefix={<img alt="Search-Icon" src={searchIcon} />}
+          prefix={
+            <img alt="Search-Icon" src={searchIcon} css={searchIconStyle} />
+          }
           value={search}
           onChange={handleSearchChange}
         />
