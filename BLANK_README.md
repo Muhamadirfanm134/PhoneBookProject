@@ -22,7 +22,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -30,8 +29,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/Muhamadirfanm134/PhoneBookProject">
+    <img src="/src/assets/icons/logoPb.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Phone Book App By Muhamad Irfan Maulana</h3>
@@ -64,17 +63,10 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -156,9 +148,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-[product-screenshot-1]
-[product-screenshot-2]
-[product-screenshot-3]
+[![Home Screen][product-screenshot-1]](https://phone-book-app-irfan.netlify.app/)
+[![Contact Detail][product-screenshot-2]](https://phone-book-app-irfan.netlify.app/)
+[![Edit Contact][product-screenshot-3]](https://phone-book-app-irfan.netlify.app/)
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -193,20 +186,14 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
+Email: muhamadirfan45513@gmail.com
 Project Link: [https://github.com/Muhamadirfanm134/PhoneBookProjectgraphs/](https://github.com/Muhamadirfanm134/PhoneBookProjectgraphs/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
 
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
