@@ -187,7 +187,7 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 Email: muhamadirfan45513@gmail.com<br/>
-Project Link: [https://github.com/Muhamadirfanm134/PhoneBookProjectgraphs/](https://github.com/Muhamadirfanm134/PhoneBookProjectgraphs/)
+Project Link: [https://github.com/Muhamadirfanm134/PhoneBookProjectgraphs/](https://github.com/Muhamadirfanm134/PhoneBookProject/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
