@@ -39,6 +39,23 @@ export const divider = css`
   margin: 10px 5px;
 `;
 
+export const favoriteTitle = css`
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+export const favoriteTag = css`
+  position: absolute;
+  top: 0;
+  border-radius: 0px 0px 8px 8px;
+  right: 0;
+  margin-top: -24px;
+  background-color: #14a01d;
+  color: white;
+  font-size: 10px;
+  padding: 5px 10px;
+`;
+
 export const notFoundStyle = css`
   display: flex;
   flex-direction: column;
