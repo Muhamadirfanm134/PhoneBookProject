@@ -17,11 +17,9 @@ import {
   phoneNumber,
   primaryButton,
   searchComponent,
-  favoriteTag,
-  favoriteTitle,
 } from "./ContactListStyle";
 import { Col, Row, Button, Tag } from "antd";
-import { GetContactListQuery, Query_Root } from "../../generated/graphql";
+import { GetContactListQuery } from "../../generated/graphql";
 import { Link, useNavigate } from "react-router-dom";
 import {
   divider,
@@ -30,11 +28,9 @@ import {
   searchIconStyle,
 } from "./ContactListStyle";
 import Gap from "../../components/gap";
-import { StarFilled } from "@ant-design/icons";
 
 interface ContactListProps {
   data: GetContactListQuery;
-  favoriteList?: Array<Query_Root>;
 }
 
 const ContactList: React.FC<ContactListProps> = ({ data }) => {
@@ -63,29 +59,10 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
     searchContact(e.target.value);
   };
 
-  let localStorageData = localStorage.getItem("favoriteList");
-  let favoriteData;
-  if (localStorageData) {
-    favoriteData = JSON.parse(localStorageData);
-  }
-
-  const [favoriteList] = useState(favoriteData);
-  const favorite_ListData = [...favoriteList].sort((a, b) =>
-    a.first_name.localeCompare(b.first_name)
-  );
-
-  const contact_ListData = [...data?.contact]
-    .sort((a, b) => a.first_name.localeCompare(b.first_name))
-    .filter(
-      (contact) =>
-        !favoriteList?.map((data: any) => data?.id).includes(contact?.id)
-    );
-
-  const contactList = [...favorite_ListData, ...contact_ListData];
-
   const searchContact = (value: any) => {
+    let newContact = [...data?.contact];
     setDataValue(
-      contactList?.filter((contact) => {
+      newContact?.filter((contact) => {
         const contactName = contact?.first_name + " " + contact?.last_name;
         const isMatch = contactName
           .toLowerCase()
@@ -102,7 +79,10 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
     setMaxValue(10);
   };
 
-  const contactsData = isSearch ? dataValue : contactList;
+  const contactsData = isSearch ? dataValue : data?.contact;
+  const contactList = [...contactsData].sort((a, b) =>
+    a.first_name.localeCompare(b.first_name)
+  );
 
   return (
     <LayoutComponent>
@@ -143,78 +123,48 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
       {total > 0 ? (
         <>
           <Row gutter={[20, 0]}>
-            {contactsData.slice(minValue, maxValue).map((data, index) => {
-              let isFavorite = favoriteList
-                ?.map((data: any) => data?.id)
-                .includes(data?.id);
+            {contactList.slice(minValue, maxValue).map((data, index) => (
+              <Col xs={24} sm={24} md={12} lg={12} xl={12} key={index}>
+                <Link
+                  to={{
+                    pathname: `/contact-detail`,
+                    search: `id=${data?.id}`,
+                  }}
+                >
+                  <CardComponent>
+                    <Row gutter={[40, 10]}>
+                      <Col xs={5} sm={24} md={5} lg={5} xl={5}>
+                        <img
+                          alt="Contact-Icon"
+                          src={contact1}
+                          css={contactIcon}
+                        />
+                      </Col>
+                      <Col xs={18} sm={24} md={18} lg={18} xl={18}>
+                        <div css={nameCard}>
+                          {data?.first_name + " " + data?.last_name}
+                        </div>
+                        <Divider css={divider} />
 
-              return (
-                <>
-                  {currentPage === 1 && favorite_ListData && index === 0 && (
-                    <Col span={24}>
-                      <div css={favoriteTitle}>Favorite List</div>
-                      <Gap height={15} />
-                    </Col>
-                  )}
-                  {currentPage === 1 && index === favorite_ListData?.length && (
-                    <>
-                      <Divider />
-                    </>
-                  )}
-                  <Col xs={24} sm={24} md={12} lg={12} xl={12} key={index}>
-                    <Link
-                      to={{
-                        pathname: `/contact-detail`,
-                        search: `id=${data?.id}`,
-                      }}
-                    >
-                      <CardComponent>
-                        {isFavorite && (
-                          <Row justify="end">
-                            <Col span={24}>
-                              <div css={favoriteTag}>
-                                <StarFilled /> Favorite
-                              </div>
-                              <Gap height={10} />
-                            </Col>
-                          </Row>
-                        )}
-
-                        <Row gutter={[40, 10]}>
-                          <Col xs={5} sm={24} md={5} lg={5} xl={5}>
-                            <img
-                              alt="Contact-Icon"
-                              src={contact1}
-                              css={contactIcon}
-                            />
-                          </Col>
-                          <Col xs={18} sm={24} md={18} lg={18} xl={18}>
-                            <div css={nameCard}>
-                              {data?.first_name + " " + data?.last_name}
-                            </div>
-                            <Divider css={divider} />
-
-                            <Tag color="#333333BA" css={phoneNumber}>
-                              {data?.phones[0]?.number
-                                ? data?.phones[0]?.number
-                                    .substring(
-                                      0,
-                                      data?.phones[0]?.number.length - 2
-                                    )
-                                    .replace(
-                                      /(\d{2})(\d{3})(\d{4})(\d{4})/,
-                                      "$1 $2-$3-$4"
-                                    )
-                                : "-"}
-                            </Tag>
-                          </Col>
-                        </Row>
-                      </CardComponent>
-                    </Link>
-                  </Col>
-                </>
-              );
-            })}
+                        <Tag color="#333333BA" css={phoneNumber}>
+                          {data?.phones[0]?.number
+                            ? data?.phones[0]?.number
+                                .substring(
+                                  0,
+                                  data?.phones[0]?.number.length - 2
+                                )
+                                .replace(
+                                  /(\d{2})(\d{3})(\d{4})(\d{4})/,
+                                  "$1 $2-$3-$4"
+                                )
+                            : "-"}
+                        </Tag>
+                      </Col>
+                    </Row>
+                  </CardComponent>
+                </Link>
+              </Col>
+            ))}
           </Row>
           <Pagination
             current={currentPage}

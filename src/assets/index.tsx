@@ -5,7 +5,6 @@ import contact1 from "./icons/contact1.svg";
 import notFound from "./icons/notFound.svg";
 import contactDetail from "./icons/contactDetail.svg";
 import linkedIn from "./icons/linkedIn.png";
-import favorite from "./icons/favorite.svg";
 
 export {
   background,
@@ -15,5 +14,4 @@ export {
   notFound,
   contactDetail,
   linkedIn,
-  favorite,
 };

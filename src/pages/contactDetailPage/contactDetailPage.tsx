@@ -10,15 +10,13 @@ import {
 } from "../../components/card/cardComponent";
 import { Heading, primaryButton } from "../contactListPage/ContactListStyle";
 import { DividerComponent } from "../../components/divider/divider";
-import { Row, Col, Tag, Button, Modal, Tooltip } from "antd";
+import { Row, Col, Tag, Button, Modal } from "antd";
 import { contact, contactDetail } from "../../assets";
 import { phoneNumber, sectionHeader } from "./ContactDetailStyle";
 import {
   DeleteOutlined,
   EditOutlined,
   ExclamationCircleOutlined,
-  StarFilled,
-  StarOutlined,
 } from "@ant-design/icons";
 import { useNavigate, Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
@@ -82,65 +80,6 @@ const ContactDetailPage: React.FC<ContactDetailPageProps> = ({
     });
   };
 
-  let localStorageData = localStorage.getItem("favoriteList");
-  let isFavorite;
-  if (localStorageData) {
-    isFavorite = JSON.parse(localStorageData)
-      ?.map((data: any) => data?.id)
-      .includes(contactData?.id);
-  }
-
-  const addToFavorite = () => {
-    var favorite: Array<any> = [];
-
-    if (localStorageData) {
-      let data = JSON.parse(localStorageData);
-      for (let i = 0; i < data?.length; i++) {
-        favorite.push(data[i]);
-      }
-      favorite.push(contactData);
-    } else {
-      favorite.push(contactData);
-    }
-
-    localStorage.setItem("favoriteList", JSON.stringify(favorite));
-    Swal.fire({
-      icon: "success",
-      showConfirmButton: false,
-      showCloseButton: true,
-      text: `Successfully add contact to favorite List`,
-    }).then(() => {
-      navigate(-1);
-    });
-  };
-
-  const deleteFromFavorite = () => {
-    confirm({
-      centered: true,
-      title: "Are you sure remove this contact from favorite?",
-      icon: <ExclamationCircleOutlined />,
-      okText: "Yes",
-
-      onOk() {
-        var favorite: Array<any> = [];
-        if (localStorageData) {
-          let data = JSON.parse(localStorageData);
-          favorite = data?.filter((data?: any) => data.id !== contactData?.id);
-        }
-
-        localStorage.setItem("favoriteList", JSON.stringify(favorite));
-        Swal.fire({
-          icon: "success",
-          showConfirmButton: false,
-          showCloseButton: true,
-          text: `Successfully remove contact to favorite List`,
-        }).then(() => {
-          navigate(-1);
-        });
-      },
-    });
-  };
-
   return (
     <LayoutComponent>
       {/* Header Section */}
@@ -167,19 +106,6 @@ const ContactDetailPage: React.FC<ContactDetailPageProps> = ({
       {/* Search and Filter */}
       <CardFilter>
         <Row gutter={10} justify="end">
-          <Col>
-            <Tooltip
-              title={isFavorite ? "Delete from favorite" : "Add Favorite"}
-            >
-              <Button
-                css={isFavorite ? primaryButton : redButton}
-                shape="circle"
-                icon={isFavorite ? <StarFilled /> : <StarOutlined />}
-                loading={loading}
-                onClick={isFavorite ? deleteFromFavorite : addToFavorite}
-              />
-            </Tooltip>
-          </Col>
           <Col>
             <Link to="/edit-contact" state={{ ...contactData }}>
               <Button

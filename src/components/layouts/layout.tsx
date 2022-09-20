@@ -25,10 +25,9 @@ const LayoutComponent: React.FunctionComponent<CommonLayoutProps> = ({
         </Row>
       </Content>
       <Footer css={footer}>
-        <div>Build Proudly By: </div>
         <Row align="middle" gutter={10}>
           <Col>
-            <div>Muhamad Irfan Maulana @2022 | </div>
+            <div>Build Proudly By: Muhamad Irfan Maulana @2022 | </div>
           </Col>
           <Col>
             <Button
