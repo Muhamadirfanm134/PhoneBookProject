@@ -64,7 +64,7 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
   };
 
   let localStorageData = localStorage.getItem("favoriteList");
-  let favoriteData;
+  let favoriteData = [];
   if (localStorageData) {
     favoriteData = JSON.parse(localStorageData);
   }
@@ -150,17 +150,22 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
 
               return (
                 <>
-                  {currentPage === 1 && favorite_ListData && index === 0 && (
-                    <Col span={24}>
-                      <div css={favoriteTitle}>Favorite List</div>
-                      <Gap height={15} />
-                    </Col>
-                  )}
-                  {currentPage === 1 && index === favorite_ListData?.length && (
-                    <>
-                      <Divider />
-                    </>
-                  )}
+                  {currentPage === 1 &&
+                    favorite_ListData &&
+                    index === 0 &&
+                    favorite_ListData?.length > 0 && (
+                      <Col span={24}>
+                        <div css={favoriteTitle}>Favorite List</div>
+                        <Gap height={15} />
+                      </Col>
+                    )}
+                  {currentPage === 1 &&
+                    index === favorite_ListData?.length &&
+                    favorite_ListData?.length > 0 && (
+                      <>
+                        <Divider />
+                      </>
+                    )}
                   <Col xs={24} sm={24} md={12} lg={12} xl={12} key={index}>
                     <Link
                       to={{
