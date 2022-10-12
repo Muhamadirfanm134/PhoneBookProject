@@ -94,7 +94,7 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
       })
     );
 
-    if (search === "") {
+    if (value === "") {
       setIsSearch(false);
     }
     setCurrentPage(1);
@@ -153,7 +153,8 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
                   {currentPage === 1 &&
                     favorite_ListData &&
                     index === 0 &&
-                    favorite_ListData?.length > 0 && (
+                    favorite_ListData?.length > 0 &&
+                    !isSearch && (
                       <Col span={24}>
                         <div css={favoriteTitle}>Favorite List</div>
                         <Gap height={15} />
@@ -161,7 +162,8 @@ const ContactList: React.FC<ContactListProps> = ({ data }) => {
                     )}
                   {currentPage === 1 &&
                     index === favorite_ListData?.length &&
-                    favorite_ListData?.length > 0 && (
+                    favorite_ListData?.length > 0 &&
+                    !isSearch && (
                       <>
                         <Divider />
                       </>
